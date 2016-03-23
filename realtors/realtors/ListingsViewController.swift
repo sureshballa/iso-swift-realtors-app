@@ -43,7 +43,7 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
             cell.textLabel?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.0)
         }
         
-        cell.textLabel?.text = array[indexPath.item]
+        //cell.textLabel?.text = array[indexPath.item]
         
         return cell
     }
