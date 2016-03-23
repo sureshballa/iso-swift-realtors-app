@@ -45,6 +45,8 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         //cell.textLabel?.text = array[indexPath.item]
         
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        
         return cell
     }
 
