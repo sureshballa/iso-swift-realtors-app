@@ -27,28 +27,14 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListingCell" rowHeight="117" id="Tnw-9H-Eyq" customClass="ListingCell" customModule="realtors" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="414" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="Tnw-9H-Eyq" id="ARg-hV-FhK">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tnw-9H-Eyq" id="ARg-hV-FhK">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="116.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="2Xu-GV-Wef">
-                                                    <rect key="frame" x="8" y="8" width="120" height="80"/>
-                                                    <animations/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="ial-b9-yaW"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="xra-lw-Aks"/>
-                                                        <constraint firstAttribute="width" constant="120" id="zyH-b4-Ikb"/>
-                                                    </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="xra-lw-Aks"/>
-                                                        </mask>
-                                                    </variation>
-                                                </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="y2X-dE-QP8">
-                                                    <rect key="frame" x="133" y="8" width="240" height="67"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="y2X-dE-QP8">
+                                                    <rect key="frame" x="133" y="8" width="218" height="67"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Property Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Z4-dK-5rJ">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Property Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Z4-dK-5rJ">
                                                             <rect key="frame" x="0.0" y="0.0" width="143" height="27"/>
                                                             <animations/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
@@ -58,10 +44,10 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="104" height="21"/>
                                                             </variation>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oRW-XJ-nBi">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oRW-XJ-nBi">
                                                             <rect key="frame" x="0.0" y="47" width="218" height="21"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M88-c9-xg2">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M88-c9-xg2">
                                                                     <rect key="frame" x="0.0" y="0.0" width="104" height="21"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Beds: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BS1-nK-tsK">
@@ -81,17 +67,17 @@
                                                                     </subviews>
                                                                     <animations/>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="62B-Tu-NPf">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="62B-Tu-NPf">
                                                                     <rect key="frame" x="114" y="0.0" width="104" height="21"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=", Baths: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqS-iO-o0O">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=", Baths: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqS-iO-o0O">
                                                                             <rect key="frame" x="0.0" y="0.0" width="62" height="21"/>
                                                                             <animations/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9N-ZE-ccP">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9N-ZE-ccP">
                                                                             <rect key="frame" x="62" y="0.0" width="42" height="21"/>
                                                                             <animations/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -114,6 +100,24 @@
                                                         <rect key="frame" x="133" y="8" width="555" height="41"/>
                                                     </variation>
                                                 </stackView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Xu-GV-Wef">
+                                                    <rect key="frame" x="8" y="8" width="120" height="80"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="F1x-uw-0V0"/>
+                                                        <constraint firstAttribute="width" secondItem="2Xu-GV-Wef" secondAttribute="height" multiplier="3:2" id="Tsv-X9-Uoa"/>
+                                                        <constraint firstAttribute="height" constant="67" id="ial-b9-yaW"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="xra-lw-Aks"/>
+                                                        <constraint firstAttribute="width" constant="100" id="zyH-b4-Ikb"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="ial-b9-yaW"/>
+                                                            <exclude reference="xra-lw-Aks"/>
+                                                            <exclude reference="zyH-b4-Ikb"/>
+                                                        </mask>
+                                                    </variation>
+                                                </imageView>
                                             </subviews>
                                             <animations/>
                                             <constraints>
@@ -130,6 +134,8 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
+                                            <outlet property="bathsLabel" destination="X9N-ZE-ccP" id="vsU-WY-O46"/>
+                                            <outlet property="bedsLabel" destination="hqS-iO-o0O" id="f0P-FX-Ohd"/>
                                             <outlet property="propertyImage" destination="2Xu-GV-Wef" id="dOp-Xe-QSW"/>
                                             <outlet property="propertyTitle" destination="0Z4-dK-5rJ" id="K0G-YC-et0"/>
                                         </connections>

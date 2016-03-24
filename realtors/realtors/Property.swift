@@ -14,11 +14,12 @@ class Property{
     let features: String
     let beds: Int
     let baths: Int
-    let estimatedValue: Int
-    let changeOverLastYear: Int
+    let estimatedValue: Double
+    let changeOverLastYear: Double
     let link: String
+    let imageLink: String
     
-    init(listingID: Int, address: String, beds: Int, baths: Int, features: String, estimatedValue: Int, changeOverLastYear: Int, link: String){
+    init(listingID: Int, address: String, beds: Int, baths: Int, features: String, estimatedValue: Double, changeOverLastYear: Double, link: String, imageLink: String){
         
         self.listingID = listingID
         self.address = address
@@ -28,5 +29,6 @@ class Property{
         self.estimatedValue = estimatedValue
         self.changeOverLastYear = changeOverLastYear
         self.link = link
+        self.imageLink = imageLink
     }
 }

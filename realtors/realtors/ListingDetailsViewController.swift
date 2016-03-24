@@ -10,15 +10,9 @@ import UIKit
 
 class ListingDetailsViewController: UIViewController {
     
-    var address: String! {
-        didSet (newValue) {
-            self.title = newValue
-        }
-    }
-    
     var property: Property? {
         didSet (newPropertyValue) {
-            
+            self.refreshUI();
         }
     }
 
@@ -26,7 +20,11 @@ class ListingDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addressLabel.text = self.address
+        
+        if(self.property != nil){
+            //Set labels
+            self.addressLabel.text = self.property?.address
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -36,12 +34,12 @@ class ListingDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-//    func refreshUI() {
-////        nameLabel?.text = monster.name
-////        descriptionLabel?.text = monster.description
-////        iconImageView?.image = UIImage(named: monster.iconName)
-////        weaponImageView?.image = monster.weaponImage()
-//    }
+    func refreshUI() {
+//        nameLabel?.text = monster.name
+//        descriptionLabel?.text = monster.description
+//        iconImageView?.image = UIImage(named: monster.iconName)
+//        weaponImageView?.image = monster.weaponImage()
+    }
 
     
 
@@ -58,9 +56,7 @@ class ListingDetailsViewController: UIViewController {
 
 //Class extensions are great for separating out delegate protocols and grouping the methods together
 extension ListingDetailsViewController: ListingSelectionDelegate {
-    func listingSelected(newListing: String) {
-        address = newListing
-        self.addressLabel.text = self.address
-
+    func listingSelected(newListing: Property) {
+        self.property = newListing
     }
 }
