@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mPu-gl-Slp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HK5-8Z-3zh">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -24,15 +24,15 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listing" rowHeight="117" id="Tnw-9H-Eyq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="listing" rowHeight="117" id="Tnw-9H-Eyq">
                                         <rect key="frame" x="0.0" y="92" width="414" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="Tnw-9H-Eyq" id="ARg-hV-FhK">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="116.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="116.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="y2X-dE-QP8">
-                                                    <rect key="frame" x="133" y="8" width="273" height="41"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="y2X-dE-QP8">
+                                                    <rect key="frame" x="133" y="8" width="240" height="41"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Property Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Z4-dK-5rJ">
                                                             <rect key="frame" x="0.0" y="0.0" width="104" height="21"/>
@@ -89,9 +89,6 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <connections>
-                                            <segue destination="j73-XI-vwY" kind="show" id="kwg-JC-ALb"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -133,6 +130,19 @@
             </objects>
             <point key="canvasLocation" x="-430" y="76"/>
         </scene>
+        <!--Split View Controller-->
+        <scene sceneID="z20-rb-DWV">
+            <objects>
+                <splitViewController id="HK5-8Z-3zh" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="mPu-gl-Slp" kind="relationship" relationship="masterViewController" id="Fzp-g4-Lyg"/>
+                        <segue destination="j73-XI-vwY" kind="relationship" relationship="detailViewController" id="I8d-Ad-NwT"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P9d-CA-Lsv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1137" y="705"/>
+        </scene>
         <!--Listing Details View Controller-->
         <scene sceneID="cke-j2-XZz">
             <objects>
@@ -155,8 +165,8 @@
                                             <constraint firstAttribute="width" secondItem="tYn-B0-P0S" secondAttribute="height" multiplier="3:2" id="HN2-nZ-RHn"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgX-59-oWI">
-                                        <rect key="frame" x="166" y="269" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Address Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgX-59-oWI">
+                                        <rect key="frame" x="133" y="269" width="109" height="21"/>
                                         <animations/>
                                         <accessibility key="accessibilityConfiguration" identifier="addressLabel" label=""/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -184,11 +194,6 @@
                                     </textView>
                                 </subviews>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="tYn-B0-P0S" secondAttribute="trailing" id="1Qa-3Y-Ya4"/>
-                                    <constraint firstItem="tYn-B0-P0S" firstAttribute="leading" secondItem="LKB-Ni-nCx" secondAttribute="leading" id="SoF-KI-OZw"/>
-                                    <constraint firstItem="tYn-B0-P0S" firstAttribute="top" secondItem="LKB-Ni-nCx" secondAttribute="top" id="Vhw-3r-GBD"/>
-                                </constraints>
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="20" y="69" width="696" height="926"/>
                                 </variation>
@@ -198,15 +203,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="LKB-Ni-nCx" secondAttribute="trailing" id="LvE-SR-Uya"/>
-                            <constraint firstItem="LKB-Ni-nCx" firstAttribute="top" secondItem="sX0-nJ-LDn" secondAttribute="bottom" constant="5" id="QRo-qz-7wR"/>
                             <constraint firstItem="LKB-Ni-nCx" firstAttribute="leading" secondItem="clt-7h-VPF" secondAttribute="leadingMargin" id="YRJ-4w-eno"/>
+                            <constraint firstItem="LKB-Ni-nCx" firstAttribute="top" secondItem="sX0-nJ-LDn" secondAttribute="bottom" constant="5" id="uiE-mB-y8n"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="addressLabel" destination="QgX-59-oWI" id="Fo0-8p-ngd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZ3-AZ-PQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="858" y="76"/>
+            <point key="canvasLocation" x="-423" y="1136"/>
         </scene>
     </scenes>
     <resources>

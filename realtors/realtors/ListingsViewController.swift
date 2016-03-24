@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol ListingSelectionDelegate: class {
+    func listingSelected(newListing: String)
+}
+
 class ListingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let array = ["Item1", "Item2", "Item3"];
+    var array = ["Item1", "Item2", "Item3"];
+    
+    weak var delegate: ListingSelectionDelegate?
     
     @IBOutlet var tableView: UITableView!
     
@@ -49,6 +55,15 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         return cell
     }
-
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedListing = self.array[indexPath.row]
+        self.delegate?.listingSelected(selectedListing)
+        
+        if let detailViewController = self.delegate as? ListingDetailsViewController {
+            splitViewController?.showDetailViewController(detailViewController, sender: nil)
+        }
+    }
+    
 }
 

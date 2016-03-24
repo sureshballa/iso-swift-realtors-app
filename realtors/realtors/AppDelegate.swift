@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let splitViewController = self.window!.rootViewController as! UISplitViewController
+        let leftNavController = splitViewController.viewControllers.first as! UINavigationController
+        let masterViewController = leftNavController.topViewController as! ListingsViewController
+        let detailViewController = splitViewController.viewControllers.last as! ListingDetailsViewController
+        
+        masterViewController.delegate = detailViewController
+        
+        let firstItem = masterViewController.array[0]
+        detailViewController.address = firstItem
+        
         return true
     }
 
