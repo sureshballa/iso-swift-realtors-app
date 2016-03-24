@@ -15,6 +15,12 @@ class ListingDetailsViewController: UIViewController {
             self.title = newValue
         }
     }
+    
+    var property: Property? {
+        didSet (newPropertyValue) {
+            
+        }
+    }
 
     @IBOutlet var addressLabel: UILabel!
     
@@ -29,6 +35,14 @@ class ListingDetailsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+//    func refreshUI() {
+////        nameLabel?.text = monster.name
+////        descriptionLabel?.text = monster.description
+////        iconImageView?.image = UIImage(named: monster.iconName)
+////        weaponImageView?.image = monster.weaponImage()
+//    }
+
     
 
     /*

@@ -39,19 +39,7 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("listing")! as UITableViewCell
-        
-        if(indexPath.item % 2 == 0){
-            cell.backgroundColor = UIColor.clearColor()
-        }
-        else{
-            cell.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
-            cell.textLabel?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.0)
-        }
-        
-        //cell.textLabel?.text = array[indexPath.item]
-        
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        let cell = tableView.dequeueReusableCellWithIdentifier("ListingCell") as! ListingCell
         
         return cell
     }
