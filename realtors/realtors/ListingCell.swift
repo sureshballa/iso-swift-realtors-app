@@ -25,6 +25,7 @@ class ListingCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -37,11 +38,13 @@ class ListingCell: UITableViewCell {
         self.propertyTitle.text = self.property?.address
         self.bedsLabel.text = String(self.property?.beds)
         self.bathsLabel.text = String(self.property?.baths)
-        self.imageView!.imageFromUrl((self.property?.imageLink)!)
-        self.imageView?.contentMode = UIViewContentMode.ScaleToFill
-        self.imageView?.clipsToBounds = true;
-    }
+        self.propertyImage!.imageFromUrl((self.property?.imageLink)!)
 
+        
+        self.propertyImage?.contentMode = UIViewContentMode.ScaleAspectFill
+    }
+    
+    
 }
 
 extension UIImageView {
@@ -51,9 +54,19 @@ extension UIImageView {
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
                 (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
                 if let imageData = data as NSData? {
+                    //self.image = self.imageWithImage(UIImage(data: imageData)!, scaledToSize: CGSizeMake(100, 100*(2/3)))
                     self.image = UIImage(data: imageData)
                 }
             }
         }
     }
+    
+    func imageWithImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+        image.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+
 }

@@ -32,33 +32,33 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="y2X-dE-QP8">
-                                                    <rect key="frame" x="133" y="8" width="218" height="67"/>
+                                                    <rect key="frame" x="155" y="8" width="260" height="62"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Property Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Z4-dK-5rJ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="143" height="27"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="119" height="22"/>
                                                             <animations/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
                                                                 <rect key="frame" x="0.0" y="0.0" width="104" height="21"/>
                                                             </variation>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oRW-XJ-nBi">
-                                                            <rect key="frame" x="0.0" y="47" width="218" height="21"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oRW-XJ-nBi">
+                                                            <rect key="frame" x="0.0" y="42" width="230" height="21"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M88-c9-xg2">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="104" height="21"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="M88-c9-xg2">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="96" height="21"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Beds: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BS1-nK-tsK">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="62" height="21"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beds: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BS1-nK-tsK">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="48" height="21"/>
                                                                             <animations/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQ2-AM-ySr">
-                                                                            <rect key="frame" x="62" y="0.0" width="42" height="21"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQ2-AM-ySr">
+                                                                            <rect key="frame" x="48" y="0.0" width="48" height="21"/>
                                                                             <animations/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -67,8 +67,8 @@
                                                                     </subviews>
                                                                     <animations/>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="62B-Tu-NPf">
-                                                                    <rect key="frame" x="114" y="0.0" width="104" height="21"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="62B-Tu-NPf">
+                                                                    <rect key="frame" x="106" y="0.0" width="124" height="21"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=", Baths: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqS-iO-o0O">
                                                                             <rect key="frame" x="0.0" y="0.0" width="62" height="21"/>
@@ -77,8 +77,8 @@
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9N-ZE-ccP">
-                                                                            <rect key="frame" x="62" y="0.0" width="42" height="21"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9N-ZE-ccP">
+                                                                            <rect key="frame" x="62" y="0.0" width="62" height="21"/>
                                                                             <animations/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -101,10 +101,10 @@
                                                     </variation>
                                                 </stackView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Xu-GV-Wef">
-                                                    <rect key="frame" x="8" y="8" width="120" height="80"/>
+                                                    <rect key="frame" x="0.0" y="8" width="147" height="98.5"/>
                                                     <animations/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="F1x-uw-0V0"/>
+                                                        <constraint firstAttribute="width" constant="120" id="F1x-uw-0V0"/>
                                                         <constraint firstAttribute="width" secondItem="2Xu-GV-Wef" secondAttribute="height" multiplier="3:2" id="Tsv-X9-Uoa"/>
                                                         <constraint firstAttribute="height" constant="67" id="ial-b9-yaW"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="xra-lw-Aks"/>
@@ -121,10 +121,9 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="2Xu-GV-Wef" secondAttribute="bottom" constant="10" id="4rZ-8E-w3t"/>
-                                                <constraint firstItem="2Xu-GV-Wef" firstAttribute="top" secondItem="ARg-hV-FhK" secondAttribute="topMargin" constant="10" id="P8i-Ef-cV3"/>
+                                                <constraint firstItem="2Xu-GV-Wef" firstAttribute="top" secondItem="ARg-hV-FhK" secondAttribute="topMargin" id="P8i-Ef-cV3"/>
                                                 <constraint firstItem="y2X-dE-QP8" firstAttribute="leading" secondItem="2Xu-GV-Wef" secondAttribute="trailing" constant="5" id="TSI-2l-7oo"/>
-                                                <constraint firstItem="2Xu-GV-Wef" firstAttribute="leading" secondItem="ARg-hV-FhK" secondAttribute="leadingMargin" id="XG6-VR-r7D"/>
+                                                <constraint firstItem="2Xu-GV-Wef" firstAttribute="leading" secondItem="ARg-hV-FhK" secondAttribute="leadingMargin" constant="-20" id="XG6-VR-r7D"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="y2X-dE-QP8" secondAttribute="trailing" id="cIA-gD-PVJ"/>
                                                 <constraint firstItem="y2X-dE-QP8" firstAttribute="top" secondItem="ARg-hV-FhK" secondAttribute="topMargin" id="u8C-QQ-vCJ"/>
                                             </constraints>
