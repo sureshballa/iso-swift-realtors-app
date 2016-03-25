@@ -24,8 +24,7 @@ class ListingDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         if(self.property != nil){
-            //Set labels
-            self.addressLabel.text = self.property?.address
+            refreshUI()
         }
 
         // Do any additional setup after loading the view.
