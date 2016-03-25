@@ -35,7 +35,7 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
+        getListings()
         
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
@@ -66,6 +66,54 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         if let detailViewController = self.delegate as? ListingDetailsViewController {
             splitViewController?.showDetailViewController(detailViewController, sender: nil)
         }
+    }
+    
+    func refreshUI(){
+        self.tableView.reloadData()
+    }
+    
+    func getListings() {
+        
+        // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
+        let postEndpoint: String = "https://sample-listings.herokuapp.com/listings"
+        let session = NSURLSession.sharedSession()
+        let url = NSURL(string: postEndpoint)!
+        
+        // Make the POST call and handle it in a completion handler
+        session.dataTaskWithURL(url, completionHandler: { ( data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+            // Make sure we get an OK response
+            guard let realResponse = response as? NSHTTPURLResponse where
+                realResponse.statusCode == 200 else {
+                    print("Not a 200 response")
+                    return
+            }
+            
+            // Read the JSON
+            do {
+                if let ipString = NSString(data:data!, encoding: NSUTF8StringEncoding) {
+                    // Print what we got from the call
+                    print(ipString)
+                    
+                    // Parse the JSON to get the IP
+                    let jsonDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+                    
+                    for item in jsonDictionary{
+                        let property = item as! NSDictionary
+                        self.propertyListings.append(Property(listingID: property["listingID"] as! Int!,
+                            address: property["address"] as! String,
+                            beds: property["beds"] as! Int,
+                            baths: property["baths"] as! Int,
+                            imageLink: property["image"] as! String))
+                    }
+                    
+                    self.performSelectorOnMainThread("refreshUI", withObject: nil, waitUntilDone: false)
+                    
+                    print(jsonDictionary)
+                }
+            } catch {
+                print("bad things happened")
+            }
+        }).resume()
     }
     
 }
