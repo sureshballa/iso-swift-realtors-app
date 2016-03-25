@@ -21,7 +21,7 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate 
         // Dispose of any resources that can be recreated.
     }
     
-    
+    //Customized split view only to not show secondary or detail controller for iPhones
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController, ontoPrimaryViewController primaryViewController:UIViewController) -> Bool {
         return true
     }

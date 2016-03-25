@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Property class with immutable values as this class state will not be changed given the scope
 class Property{
     let listingID: Int
     let address: String

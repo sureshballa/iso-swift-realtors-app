@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B7BA1F41CA5AB5F002A4260 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7BA1F31CA5AB5F002A4260 /* UIImageViewExtensions.swift */; };
+		7B7BA1F61CA5ABBA002A4260 /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7BA1F51CA5ABBA002A4260 /* GeneralExtensions.swift */; };
 		7B826B1A1CA26AD200024609 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B826B191CA26AD200024609 /* AppDelegate.swift */; };
 		7B826B1C1CA26AD200024609 /* ListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B826B1B1CA26AD200024609 /* ListingsViewController.swift */; };
 		7B826B1F1CA26AD200024609 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B826B1D1CA26AD200024609 /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B7BA1F31CA5AB5F002A4260 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
+		7B7BA1F51CA5ABBA002A4260 /* GeneralExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralExtensions.swift; sourceTree = "<group>"; };
 		7B826B161CA26AD200024609 /* realtors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = realtors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B826B191CA26AD200024609 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B826B1B1CA26AD200024609 /* ListingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 		7B826B2C1CA26B4100024609 /* helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7B7BA1F31CA5AB5F002A4260 /* UIImageViewExtensions.swift */,
+				7B7BA1F51CA5ABBA002A4260 /* GeneralExtensions.swift */,
 			);
 			name = helpers;
 			sourceTree = "<group>";
@@ -187,6 +193,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B7BA1F61CA5ABBA002A4260 /* GeneralExtensions.swift in Sources */,
+				7B7BA1F41CA5AB5F002A4260 /* UIImageViewExtensions.swift in Sources */,
 				7B826B381CA3E36300024609 /* ListingCell.swift in Sources */,
 				7B826B361CA3D67F00024609 /* Property.swift in Sources */,
 				7B826B321CA2B99200024609 /* ListingDetailsViewController.swift in Sources */,
@@ -342,6 +350,7 @@
 				7B826B2A1CA26AD200024609 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

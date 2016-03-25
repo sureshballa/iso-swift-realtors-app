@@ -25,7 +25,6 @@ class ListingDetailsViewController: UIViewController {
         self.addressLabel.text = ""
         self.summaryLabel.text = ""
         self.featuresTextView.text = ""
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,25 +38,13 @@ class ListingDetailsViewController: UIViewController {
         self.summaryLabel.text = "Beds: " + (self.property?.beds.stringValue)! + ", Baths: " +  (self.property?.baths.stringValue)! + ", $" + (self.property?.estimatedValue!.stringValue)! + ", " + (self.property?.changeOverLastYear!.stringValue)!
         self.propertyImage!.imageFromUrl((self.property?.imageLink)!)
     }
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func getPropertyDetails() {
         
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
-        let listingsEndpoint: String = "https://sample-listings.herokuapp.com/listings/" + (self.property?.listingID.stringValue)!
+        let propertyEndpoint: String = "https://sample-listings.herokuapp.com/listings/" + (self.property?.listingID.stringValue)!
         let session = NSURLSession.sharedSession()
-        let url = NSURL(string: listingsEndpoint)!
+        let url = NSURL(string: propertyEndpoint)!
         
         // Make the POST call and handle it in a completion handler
         session.dataTaskWithURL(url, completionHandler: { ( data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in

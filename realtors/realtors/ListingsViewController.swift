@@ -15,14 +15,11 @@ protocol ListingSelectionDelegate: class {
 class ListingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var propertyListings = [Property]()
-    
     weak var delegate: ListingSelectionDelegate?
-    
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         getListings()
         
@@ -40,11 +37,8 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("ListingCell") as! ListingCell
-        
         cell.property = self.propertyListings[indexPath.row]
-        
         return cell
     }
     
@@ -93,9 +87,9 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
                     print(rawResponse)
                     
                     // Parse the JSON
-                    let jsonDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+                    let jsonDictionaryArray = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
                     
-                    for item in jsonDictionary{
+                    for item in jsonDictionaryArray{
                         let property = item as! NSDictionary
                         self.propertyListings.append(Property(listingID: property["listingID"] as! Int!,
                             address: property["address"] as! String,
@@ -106,7 +100,7 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
                     
                     self.performSelectorOnMainThread("refreshUI", withObject: nil, waitUntilDone: false)
                     
-                    print(jsonDictionary)
+                    print(jsonDictionaryArray)
                 }
             } catch {
                 self.populateListingsLocally()
@@ -115,6 +109,7 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         }).resume()
     }
     
+    //Fallback metod if internet is not available or service is not available
     func populateListingsLocally(){
         
         self.propertyListings.append(Property(listingID: 1, address: "1503 Elk Forest Rd, Elkton, MD 21921", beds: 5, baths: 5, features: "Appliance: Dishwasher, Exhaust Fans, Icemaker, Dryer, Instant Hot-Water Dispenser, Microwave, Refrigerator, Six Burner Stove, Trash Compactor, Washer, Water Conditioner, Water Dispenser\nCooling: Heat Pumps\nHeating: Heat Pump\nKitchen: Gourmet, Kitchen Island, Second Kitchen, Breakfast Room\nWindow: Double Pane Windows, Palladian Windows, Recessed Lights, Screened, Six Panel Doors, Insulated Windows, Insulated Doors, Atrium Door, French Doors\nRoom Details: Living Room, Dining Room, Master Bedroom, Bedroom 4, Kitchen, Family Room, Library, Foyer, Breakfast Room, Florida/Sun Room", estimatedValue: 1594000, changeOverLastYear:  -30.02, link: "http://www.zillow.com/homedetails/1503-Elk-Forest-Rd-Elkton-MD-21921/82130373_zpid/", imageLink: "https://sample-listings.herokuapp.com/images/1.jpg"))

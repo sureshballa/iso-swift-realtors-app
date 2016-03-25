@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
         
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let leftNavController = splitViewController.viewControllers.first as! UINavigationController
@@ -27,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.detailViewController = detailViewController
         
+        //Loosely couple master and detail view for show details based on list item selected on master
         masterViewController.delegate = detailViewController
         detailViewController.property = nil
         
