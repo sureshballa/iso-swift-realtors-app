@@ -145,7 +145,7 @@
                 <splitViewController id="HK5-8Z-3zh" customClass="SplitViewController" customModule="realtors" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="mPu-gl-Slp" kind="relationship" relationship="masterViewController" id="Fzp-g4-Lyg"/>
-                        <segue destination="j73-XI-vwY" kind="relationship" relationship="detailViewController" id="I8d-Ad-NwT"/>
+                        <segue destination="SJV-bk-WwX" kind="relationship" relationship="detailViewController" id="I8d-Ad-NwT"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P9d-CA-Lsv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -165,7 +165,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LKB-Ni-nCx">
-                                <rect key="frame" x="20" y="69" width="374" height="755"/>
+                                <rect key="frame" x="20" y="69" width="374" height="711"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tYn-B0-P0S">
                                         <rect key="frame" x="30" y="0.0" width="314" height="209"/>
@@ -175,7 +175,7 @@
                                         </constraints>
                                     </imageView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Efd-Hk-JIB">
-                                        <rect key="frame" x="0.0" y="229" width="374" height="526"/>
+                                        <rect key="frame" x="0.0" y="229" width="374" height="482"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cI0-Yv-z1H">
                                                 <rect key="frame" x="21" y="20" width="374" height="446"/>
@@ -230,6 +230,7 @@
                             <constraint firstItem="LKB-Ni-nCx" firstAttribute="top" secondItem="sX0-nJ-LDn" secondAttribute="bottom" constant="5" id="uiE-mB-y8n"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ywP-dL-8sf"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="addressLabel" destination="QgX-59-oWI" id="Fo0-8p-ngd"/>
@@ -239,6 +240,26 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZ3-AZ-PQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="389" y="1136"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZWp-x7-uSc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SJV-bk-WwX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EeM-oL-ltU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="j73-XI-vwY" kind="relationship" relationship="rootViewController" id="YG1-Db-Xeu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ku-TZ-Slb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-423" y="1136"/>
         </scene>

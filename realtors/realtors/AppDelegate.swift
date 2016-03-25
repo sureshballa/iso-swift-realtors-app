@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var detailViewController: ListingDetailsViewController?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -20,10 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let leftNavController = splitViewController.viewControllers.first as! UINavigationController
         let masterViewController = leftNavController.topViewController as! ListingsViewController
-        let detailViewController = splitViewController.viewControllers.last as! ListingDetailsViewController
+        
+        let rightNavController = splitViewController.viewControllers.last as! UINavigationController
+        let detailViewController = rightNavController.topViewController as! ListingDetailsViewController
+        
+        self.detailViewController = detailViewController
         
         masterViewController.delegate = detailViewController
         detailViewController.property = nil
+        
+        detailViewController.navigationItem.leftItemsSupplementBackButton = true
+        detailViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         
         return true
     }

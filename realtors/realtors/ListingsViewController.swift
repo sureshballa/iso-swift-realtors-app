@@ -53,16 +53,20 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         self.delegate?.listingSelected(selectedPropertyListing)
         
         if let detailViewController = self.delegate as? ListingDetailsViewController {
-            splitViewController?.showDetailViewController(detailViewController, sender: nil)
+            splitViewController?.showDetailViewController(detailViewController.navigationController!, sender: nil)
         }
     }
     
     func refreshUI(){
         self.tableView.reloadData()
-        
-        let selectedPropertyListing = self.propertyListings[0]
-        self.delegate?.listingSelected(selectedPropertyListing)
 
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        //detail view controller will not be loaded in iPhone, so performing below check
+        if(appDelegate.detailViewController!.isViewLoaded()){
+            let selectedPropertyListing = self.propertyListings[0]
+            self.delegate?.listingSelected(selectedPropertyListing)
+        }
     }
     
     func getListings() {
