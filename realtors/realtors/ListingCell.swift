@@ -51,6 +51,12 @@ extension Int {
     }
 }
 
+extension Double {
+    var stringValue: String {
+        return String(format: "%.1f",self)
+    }
+}
+
 extension UIImageView {
     public func imageFromUrl(urlString: String) {
         if let url = NSURL(string: urlString) {

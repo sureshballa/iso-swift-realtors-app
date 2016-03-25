@@ -10,11 +10,7 @@ import UIKit
 
 class ListingDetailsViewController: UIViewController {
     
-    var property: Property? {
-        didSet (newPropertyValue) {
-        }
-    }
-
+    var property: Property?
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var summaryLabel: UILabel!
     @IBOutlet var featuresTextView: UITextView!
@@ -22,11 +18,13 @@ class ListingDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if(self.property != nil){
-            refreshUI()
+            self.getPropertyDetails()
         }
-
+        
+        self.addressLabel.text = ""
+        self.summaryLabel.text = ""
+        self.featuresTextView.text = ""
         // Do any additional setup after loading the view.
     }
 
@@ -38,9 +36,8 @@ class ListingDetailsViewController: UIViewController {
     func refreshUI() {
         self.addressLabel.text = self.property?.address
         self.featuresTextView.text = self.property?.features
-    
-    self.propertyImage!.imageFromUrl((self.property?.imageLink)!)
-
+        self.summaryLabel.text = "Beds: " + (self.property?.beds.stringValue)! + ", Baths: " +  (self.property?.baths.stringValue)! + ", $" + (self.property?.estimatedValue!.stringValue)! + ", " + (self.property?.changeOverLastYear!.stringValue)!
+        self.propertyImage!.imageFromUrl((self.property?.imageLink)!)
     }
 
     
@@ -54,12 +51,56 @@ class ListingDetailsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func getPropertyDetails() {
+        
+        // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
+        let listingsEndpoint: String = "https://sample-listings.herokuapp.com/listings/" + (self.property?.listingID.stringValue)!
+        let session = NSURLSession.sharedSession()
+        let url = NSURL(string: listingsEndpoint)!
+        
+        // Make the POST call and handle it in a completion handler
+        session.dataTaskWithURL(url, completionHandler: { ( data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+            // Make sure we get an OK response
+            guard let realResponse = response as? NSHTTPURLResponse where
+                realResponse.statusCode == 200 else {
+                    print("Not a 200 response")
+                    return
+            }
+            
+            // Read the JSON
+            do {
+                if let rawResponse = NSString(data:data!, encoding: NSUTF8StringEncoding) {
+                    // Print what we got from the call
+                    print(rawResponse)
+                    
+                    // Parse the JSON
+                    let jsonDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                    
+                    let changeOverLastYear = jsonDictionary["changeOverLastYear"] as! Double!
+                    let estimatedValue = jsonDictionary["estimatedValue"] as! Double!
+                    let features = jsonDictionary["features"] as! String!
+                    let imageLink = "https://sample-listings.herokuapp.com" + (jsonDictionary["image"] as! String!)
+                    let link = jsonDictionary["link"] as! String!
+                    
+                    self.property = Property(listingID: (self.property?.listingID)!, address: (self.property?.address)!, beds: (self.property?.beds)!, baths: (self.property?.baths)!, features: features, estimatedValue: estimatedValue, changeOverLastYear: changeOverLastYear, link: link, imageLink: imageLink)
+                    
+                    self.performSelectorOnMainThread("refreshUI", withObject: nil, waitUntilDone: false)
+                    
+                    print(jsonDictionary)
+                }
+            } catch {
+                print("bad things happened")
+            }
+        }).resume()
+    }
+
 }
 
 //Class extensions are great for separating out delegate protocols and grouping the methods together
 extension ListingDetailsViewController: ListingSelectionDelegate {
     func listingSelected(newListing: Property) {
         self.property = newListing
-        self.refreshUI();
+        self.getPropertyDetails()
     }
 }

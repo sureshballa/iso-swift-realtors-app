@@ -24,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         masterViewController.delegate = detailViewController
         
-        let propertyListing = masterViewController.propertyListings[0]
-        detailViewController.property = propertyListing
+        //let propertyListing = masterViewController.propertyListings[0]
+        detailViewController.property = nil
         
         return true
     }

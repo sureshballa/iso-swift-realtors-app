@@ -14,17 +14,6 @@ protocol ListingSelectionDelegate: class {
 
 class ListingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        self.propertyListings.append(Property(listingID: 1, address: "1503 Elk Forest Rd, Elkton, MD 21921", beds: 5, baths: 5, features: "Appliance: Dishwasher, Exhaust Fans, Icemaker, Dryer, Instant Hot-Water Dispenser, Microwave, Refrigerator, Six Burner Stove, Trash Compactor, Washer, Water Conditioner, Water Dispenser\nCooling: Heat Pumps\nHeating: Heat Pump\nKitchen: Gourmet, Kitchen Island, Second Kitchen, Breakfast Room\nWindow: Double Pane Windows, Palladian Windows, Recessed Lights, Screened, Six Panel Doors, Insulated Windows, Insulated Doors, Atrium Door, French Doors\nRoom Details: Living Room, Dining Room, Master Bedroom, Bedroom 4, Kitchen, Family Room, Library, Foyer, Breakfast Room, Florida/Sun Room", estimatedValue: 1594000, changeOverLastYear:  -30.02, link: "http://www.zillow.com/homedetails/1503-Elk-Forest-Rd-Elkton-MD-21921/82130373_zpid/", imageLink: "https://sample-listings.herokuapp.com/images/1.jpg"))
-        
-        self.propertyListings.append(Property(listingID: 2, address: "511 Ricketts Mill Rd, Elkton, MD 21921", beds: 5, baths: 4, features: "Basement: Walkout Stairs\nCooling: Zoned\nHeating: Baseboard, Forced Air, Zoned\nKitchen: Kitchen-Breakfast Bar, Eat In Kitchen", estimatedValue: 924190, changeOverLastYear:  5.78, link: "http://www.zillow.com/homedetails/511-Ricketts-Mill-Rd-Elkton-MD-21921/36675465_zpid/", imageLink: "https://sample-listings.herokuapp.com/images/2.jpg"))
-        
-        self.propertyListings.append(Property(listingID: 3, address: "68 Fawn Valley Dr, Elkton, MD 21921", beds: 4, baths: 5, features: "Appliance: Intercom, Trash Compactor\nBasement: Fully Finished, Heated\nHeating: 90% Forced Air\nKitchen: Second Kitchen, Family Room Off Kitchen\nRoom Details: Dining Room, Master Bedroom, Bedroom 2, Bedroom 4, Kitchen, Family Room, Finished Attic, Florida/Sun Room, In-Law/Aupair/Suite\nBasement Square Feet Range High: 1180 sq/ft\nApproximate Finished: 3964 sq ft", estimatedValue: 924100, changeOverLastYear:  5.78, link: "http://www.zillow.com/homedetails/68-Fawn-Valley-Dr-Elkton-MD-21921/82132158_zpid/", imageLink: "https://sample-listings.herokuapp.com/images/3.jpg"))
-        
-    }
-    
     var propertyListings = [Property]()
     
     weak var delegate: ListingSelectionDelegate?
@@ -75,26 +64,27 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
     func getListings() {
         
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
-        let postEndpoint: String = "https://sample-listings.herokuapp.com/listings"
+        let listingsEndpoint: String = "https://sample-listings.herokuapp.com/listings"
         let session = NSURLSession.sharedSession()
-        let url = NSURL(string: postEndpoint)!
+        let url = NSURL(string: listingsEndpoint)!
         
         // Make the POST call and handle it in a completion handler
         session.dataTaskWithURL(url, completionHandler: { ( data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
             // Make sure we get an OK response
             guard let realResponse = response as? NSHTTPURLResponse where
                 realResponse.statusCode == 200 else {
+                    self.populateListingsLocally()
                     print("Not a 200 response")
                     return
             }
             
             // Read the JSON
             do {
-                if let ipString = NSString(data:data!, encoding: NSUTF8StringEncoding) {
+                if let rawResponse = NSString(data:data!, encoding: NSUTF8StringEncoding) {
                     // Print what we got from the call
-                    print(ipString)
+                    print(rawResponse)
                     
-                    // Parse the JSON to get the IP
+                    // Parse the JSON
                     let jsonDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
                     
                     for item in jsonDictionary{
@@ -103,7 +93,7 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
                             address: property["address"] as! String,
                             beds: property["beds"] as! Int,
                             baths: property["baths"] as! Int,
-                            imageLink: property["image"] as! String))
+                            imageLink: "https://sample-listings.herokuapp.com" + (property["image"] as! String)))
                     }
                     
                     self.performSelectorOnMainThread("refreshUI", withObject: nil, waitUntilDone: false)
@@ -111,9 +101,19 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
                     print(jsonDictionary)
                 }
             } catch {
+                self.populateListingsLocally()
                 print("bad things happened")
             }
         }).resume()
+    }
+    
+    func populateListingsLocally(){
+        
+        self.propertyListings.append(Property(listingID: 1, address: "1503 Elk Forest Rd, Elkton, MD 21921", beds: 5, baths: 5, features: "Appliance: Dishwasher, Exhaust Fans, Icemaker, Dryer, Instant Hot-Water Dispenser, Microwave, Refrigerator, Six Burner Stove, Trash Compactor, Washer, Water Conditioner, Water Dispenser\nCooling: Heat Pumps\nHeating: Heat Pump\nKitchen: Gourmet, Kitchen Island, Second Kitchen, Breakfast Room\nWindow: Double Pane Windows, Palladian Windows, Recessed Lights, Screened, Six Panel Doors, Insulated Windows, Insulated Doors, Atrium Door, French Doors\nRoom Details: Living Room, Dining Room, Master Bedroom, Bedroom 4, Kitchen, Family Room, Library, Foyer, Breakfast Room, Florida/Sun Room", estimatedValue: 1594000, changeOverLastYear:  -30.02, link: "http://www.zillow.com/homedetails/1503-Elk-Forest-Rd-Elkton-MD-21921/82130373_zpid/", imageLink: "https://sample-listings.herokuapp.com/images/1.jpg"))
+        
+        self.propertyListings.append(Property(listingID: 2, address: "511 Ricketts Mill Rd, Elkton, MD 21921", beds: 5, baths: 4, features: "Basement: Walkout Stairs\nCooling: Zoned\nHeating: Baseboard, Forced Air, Zoned\nKitchen: Kitchen-Breakfast Bar, Eat In Kitchen", estimatedValue: 924190, changeOverLastYear:  5.78, link: "http://www.zillow.com/homedetails/511-Ricketts-Mill-Rd-Elkton-MD-21921/36675465_zpid/", imageLink: "https://sample-listings.herokuapp.com/images/2.jpg"))
+        
+        self.propertyListings.append(Property(listingID: 3, address: "68 Fawn Valley Dr, Elkton, MD 21921", beds: 4, baths: 5, features: "Appliance: Intercom, Trash Compactor\nBasement: Fully Finished, Heated\nHeating: 90% Forced Air\nKitchen: Second Kitchen, Family Room Off Kitchen\nRoom Details: Dining Room, Master Bedroom, Bedroom 2, Bedroom 4, Kitchen, Family Room, Finished Attic, Florida/Sun Room, In-Law/Aupair/Suite\nBasement Square Feet Range High: 1180 sq/ft\nApproximate Finished: 3964 sq ft", estimatedValue: 924100, changeOverLastYear:  5.78, link: "http://www.zillow.com/homedetails/68-Fawn-Valley-Dr-Elkton-MD-21921/82132158_zpid/", imageLink: "https://sample-listings.herokuapp.com/images/3.jpg"))
     }
     
 }
