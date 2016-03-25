@@ -13,8 +13,7 @@ class ListingCell: UITableViewCell {
     
     @IBOutlet var propertyImage: UIImageView!
     @IBOutlet var propertyTitle: UILabel!
-    @IBOutlet var bedsLabel: UILabel!
-    @IBOutlet var bathsLabel: UILabel!
+    @IBOutlet var summaryLabel: UILabel!
     
     var property: Property? {
         didSet (newPropertyValue) {
@@ -36,8 +35,7 @@ class ListingCell: UITableViewCell {
     
     func refreshUI() {
         self.propertyTitle.text = self.property?.address
-        self.bedsLabel.text = String(self.property?.beds)
-        self.bathsLabel.text = String(self.property?.baths)
+        self.summaryLabel?.text = "Beds: " + (self.property?.beds.stringValue)! + ", Baths: " +  (self.property?.baths.stringValue)!
         self.propertyImage!.imageFromUrl((self.property?.imageLink)!)
 
         
@@ -45,6 +43,12 @@ class ListingCell: UITableViewCell {
     }
     
     
+}
+
+extension Int {
+    var stringValue:String {
+        return "\(self)"
+    }
 }
 
 extension UIImageView {
