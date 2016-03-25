@@ -182,8 +182,8 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFP-JF-I5u">
-                                        <rect key="frame" x="166" y="310" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFP-JF-I5u">
+                                        <rect key="frame" x="151" y="310" width="73" height="21"/>
                                         <animations/>
                                         <accessibility key="accessibilityConfiguration" identifier="summaryLabel"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -219,6 +219,9 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="addressLabel" destination="QgX-59-oWI" id="Fo0-8p-ngd"/>
+                        <outlet property="featuresTextView" destination="LqA-C0-KQm" id="FPe-gT-pWm"/>
+                        <outlet property="propertyImage" destination="tYn-B0-P0S" id="p49-mS-5YM"/>
+                        <outlet property="summaryLabel" destination="MFP-JF-I5u" id="4Z9-ds-Gpb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZ3-AZ-PQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

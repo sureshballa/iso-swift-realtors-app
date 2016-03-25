@@ -12,11 +12,13 @@ class ListingDetailsViewController: UIViewController {
     
     var property: Property? {
         didSet (newPropertyValue) {
-            self.refreshUI();
         }
     }
 
     @IBOutlet var addressLabel: UILabel!
+    @IBOutlet var summaryLabel: UILabel!
+    @IBOutlet var featuresTextView: UITextView!
+    @IBOutlet var propertyImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +37,11 @@ class ListingDetailsViewController: UIViewController {
     }
     
     func refreshUI() {
-//        nameLabel?.text = monster.name
-//        descriptionLabel?.text = monster.description
-//        iconImageView?.image = UIImage(named: monster.iconName)
-//        weaponImageView?.image = monster.weaponImage()
+        self.addressLabel.text = self.property?.address
+        self.featuresTextView.text = self.property?.features
+    
+    self.propertyImage!.imageFromUrl((self.property?.imageLink)!)
+
     }
 
     
@@ -58,5 +61,6 @@ class ListingDetailsViewController: UIViewController {
 extension ListingDetailsViewController: ListingSelectionDelegate {
     func listingSelected(newListing: Property) {
         self.property = newListing
+        self.refreshUI();
     }
 }
