@@ -23,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let detailViewController = splitViewController.viewControllers.last as! ListingDetailsViewController
         
         masterViewController.delegate = detailViewController
-        
-        //let propertyListing = masterViewController.propertyListings[0]
         detailViewController.property = nil
         
         return true

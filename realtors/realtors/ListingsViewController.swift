@@ -59,6 +59,10 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func refreshUI(){
         self.tableView.reloadData()
+        
+        let selectedPropertyListing = self.propertyListings[0]
+        self.delegate?.listingSelected(selectedPropertyListing)
+
     }
     
     func getListings() {

@@ -29,16 +29,12 @@ class ListingCell: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func refreshUI() {
         self.propertyTitle.text = self.property?.address
         self.summaryLabel?.text = "Beds: " + (self.property?.beds.stringValue)! + ", Baths: " +  (self.property?.baths.stringValue)!
         self.propertyImage!.imageFromUrl((self.property?.imageLink)!)
-
-        
         self.propertyImage?.contentMode = UIViewContentMode.ScaleAspectFill
     }
     

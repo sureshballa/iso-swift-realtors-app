@@ -12,7 +12,7 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -22,16 +22,9 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate 
     }
     
     
-//    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController, ontoPrimaryViewController primaryViewController:UIViewController) -> Bool {
-////        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-////        guard let topAsDetailController = secondaryAsNavController.topViewController as? ListingDetailsViewController else { return false }
-////        if topAsDetailController.address == nil {
-////            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-////            return true
-////        }
-////        return false
-//        return true
-//    }
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController, ontoPrimaryViewController primaryViewController:UIViewController) -> Bool {
+        return true
+    }
 
     
     
