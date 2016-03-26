@@ -15,6 +15,8 @@ class ListingDetailsViewController: UIViewController {
     @IBOutlet var summaryLabel: UILabel!
     @IBOutlet var featuresTextView: UITextView!
     @IBOutlet var propertyImage: UIImageView!
+    @IBOutlet var propertyChangeValue: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,7 @@ class ListingDetailsViewController: UIViewController {
         self.addressLabel.text = ""
         self.summaryLabel.text = ""
         self.featuresTextView.text = ""
+        self.propertyChangeValue.text = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +38,18 @@ class ListingDetailsViewController: UIViewController {
     func refreshUI() {
         self.addressLabel.text = self.property?.address
         self.featuresTextView.text = self.property?.features
-        self.summaryLabel.text = "Beds: " + (self.property?.beds.stringValue)! + ", Baths: " +  (self.property?.baths.stringValue)! + ", $" + (self.property?.estimatedValue!.stringValue)! + ", " + (self.property?.changeOverLastYear!.stringValue)!
+        self.summaryLabel.text = "Beds: " + (self.property?.beds.stringValue)! + ", Baths: " +  (self.property?.baths.stringValue)! + ", " + (self.property?.estimatedValue!.asLocaleCurrency)! + ", "
+        self.propertyChangeValue.text = (self.property?.changeOverLastYear!.stringValue)!
+        
+        if(self.property?.changeOverLastYear < 0){
+            self.propertyChangeValue.textColor = UIColor.redColor()
+        }
+        else{
+            self.propertyChangeValue.textColor = UIColor.greenColor()
+        }
+        
+        self.title = self.property?.address
+        
         self.propertyImage!.imageFromUrl((self.property?.imageLink)!)
     }
     

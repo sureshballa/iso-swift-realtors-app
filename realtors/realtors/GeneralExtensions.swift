@@ -16,6 +16,13 @@ extension Int {
 
 extension Double {
     var stringValue: String {
-        return String(format: "%.1f",self)
+        return String(format: "%.2f",self)
+    }
+    
+    var asLocaleCurrency:String {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        formatter.locale = NSLocale.currentLocale()
+        return formatter.stringFromNumber(self)!
     }
 }

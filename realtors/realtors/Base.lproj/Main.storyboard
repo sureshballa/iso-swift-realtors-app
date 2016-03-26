@@ -203,17 +203,33 @@
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         </variation>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFP-JF-I5u">
-                                                        <rect key="frame" x="151" y="21" width="73" height="20"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ciE-OC-cPD">
+                                                        <rect key="frame" x="98" y="21" width="179" height="20"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFP-JF-I5u">
+                                                                <rect key="frame" x="0.0" y="0.0" width="73" height="20"/>
+                                                                <animations/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="summaryLabel"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                </variation>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Value Change" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Neb-Vg-zNo">
+                                                                <rect key="frame" x="73" y="0.0" width="106" height="20"/>
+                                                                <animations/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                </variation>
+                                                            </label>
+                                                        </subviews>
                                                         <animations/>
-                                                        <accessibility key="accessibilityConfiguration" identifier="summaryLabel"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <variation key="heightClass=regular-widthClass=regular">
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        </variation>
-                                                    </label>
+                                                    </stackView>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" text="Features" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LqA-C0-KQm">
                                                         <rect key="frame" x="12" y="41" width="350" height="405"/>
                                                         <animations/>
@@ -270,6 +286,7 @@
                     <connections>
                         <outlet property="addressLabel" destination="QgX-59-oWI" id="Fo0-8p-ngd"/>
                         <outlet property="featuresTextView" destination="LqA-C0-KQm" id="FPe-gT-pWm"/>
+                        <outlet property="propertyChangeValue" destination="Neb-Vg-zNo" id="q5Z-fj-48S"/>
                         <outlet property="propertyImage" destination="tYn-B0-P0S" id="p49-mS-5YM"/>
                         <outlet property="summaryLabel" destination="MFP-JF-I5u" id="4Z9-ds-Gpb"/>
                     </connections>
